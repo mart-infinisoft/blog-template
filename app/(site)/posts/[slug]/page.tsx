@@ -138,7 +138,7 @@ export default async function PostPage({ params }: PostProps) {
               <time> Last updated: {format(parseISO(post.lastUpdatedDate), "LLLL d, yyyy")}</time>
             )}
           </div>
-          <Accordion type="single" collapsible>
+          <Accordion type="single" collapsible className="mb-8">
             <AccordionItem value="table-of-contents">
               <AccordionTrigger>Table of Contents</AccordionTrigger>
               <AccordionContent>
@@ -148,11 +148,11 @@ export default async function PostPage({ params }: PostProps) {
           </Accordion>
         </div>
         <article className="prose max-w-7xl dark:prose-invert hover:prose-a:text-accent-foreground prose-a:prose-headings:mb-3 prose-a:prose-headings:mt-8 prose-a:prose-headings:font-heading prose-a:prose-headings:font-bold prose-a:prose-headings:leading-tight prose-a:prose-headings:no-underline lg:mr-auto lg:max-w-2xl">
-          <h1 className="mb-2 font-heading">{post.title}</h1>
+          <h1 className="mb-6 mt-8 font-heading">{post.title}</h1>
           {post.description && (
-            <p className="mb-2 mt-0 text-xl text-slate-700 dark:text-slate-200">{post.description}</p>
+            <p className="mb-8 mt-0 text-xl text-slate-700 dark:text-slate-200">{post.description}</p>
           )}
-          <hr className="my-4" />
+          <hr className="my-8" />
           {post?.series && (
             <div className="not-prose">
               <PostSeriesBox data={post.series} />
@@ -178,7 +178,7 @@ export default async function PostPage({ params }: PostProps) {
             />
           </div>
         </article>
-        <aside className="hidden lg:block">
+        <aside className="hidden lg:block lg:ml-8">
           <Card className={cn("sticky top-28 mb-4")}>
             <CardHeader>
               <CardTitle>Table of Contents</CardTitle>

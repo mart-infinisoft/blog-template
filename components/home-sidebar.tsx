@@ -46,7 +46,6 @@ export function Sidebar({ className, ...props }: CardProps) {
           {projects.slice(0, siteMetadata.projectsOnHomePage).map((project) => (
             <Link
               href={project.href}
-              target="_blank"
               key={project.title.trim()}
               className="flex items-center rounded-md pl-2 hover:bg-background/40 hover:backdrop-blur-lg"
             >

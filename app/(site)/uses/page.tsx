@@ -21,10 +21,7 @@ export default async function SocialPage() {
             These are the tools I use to get my work done. Links marked with (*) are affiliate links. It does not cost
             you anything to use them, but I get a small commission if you do.
           </p>
-          <AlertTriangle className="inline h-5 w-5 text-amber-500" /> Note: This page is heavily under construction!{" "}
-          <AlertTriangle className="inline h-5 w-5 text-amber-500" />
         </p>
-        <time className="text-sm text-slate-500">Last updated: {format(parseISO("2023-06-11"), "LLLL d, yyyy")}</time>
         <hr className="my-4" />
         <h2>Software</h2>
         <ul>

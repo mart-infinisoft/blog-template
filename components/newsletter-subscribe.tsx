@@ -67,6 +67,7 @@ const NewsletterSubscribe = ({
 
   return (
     <section
+      id="newsletter"
       className={cn("relative isolate my-24 overflow-hidden bg-primary py-6 text-primary-foreground", className)}
       {...props}
     >
@@ -97,15 +98,7 @@ const NewsletterSubscribe = ({
               </Button>
             </form>
           </Form>
-          {siteMetadata.newsletterUrl && (
-            <div className="mt-4 flex items-center justify-center">
-              <Button asChild variant="ghost">
-                <Link href={siteMetadata.newsletterUrl} target="_blank">
-                  Let me read it first <ArrowRight className="mr-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          )}
+
         </div>
       </div>
 

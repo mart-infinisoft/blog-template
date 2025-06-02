@@ -3,6 +3,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useTheme } from "next-themes";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -10,12 +11,13 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 interface SpotlightCardProps {
   title: string;
   description: string;
+  shortDescription?: string;
   mediaSrc: string;
   mediaType: string;
   href: string;
 }
 
-export const SpotlightCard = ({ title, description, mediaSrc, mediaType, href }: SpotlightCardProps) => {
+export const SpotlightCard = ({ title, description, shortDescription, mediaSrc, mediaType, href }: SpotlightCardProps) => {
   const { theme } = useTheme();
   const divRef = useRef<HTMLDivElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -50,16 +52,16 @@ export const SpotlightCard = ({ title, description, mediaSrc, mediaType, href }:
   };
 
   return (
-    <div
-      ref={divRef}
-      onClick={() => window.open(href, "_blank")}
-      onMouseMove={handleMouseMove}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative flex cursor-pointer flex-col justify-start overflow-hidden rounded-md border border-slate-200 bg-gradient-to-r from-slate-100  to-slate-50 shadow-md dark:border-slate-800 dark:from-slate-900 dark:to-slate-950"
-    >
+    <Link href={href}>
+      <div
+        ref={divRef}
+        onMouseMove={handleMouseMove}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="relative flex cursor-pointer flex-col justify-start overflow-hidden rounded-md border border-slate-200 bg-gradient-to-r from-slate-100  to-slate-50 shadow-md dark:border-slate-800 dark:from-slate-900 dark:to-slate-950"
+      >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
@@ -82,8 +84,9 @@ export const SpotlightCard = ({ title, description, mediaSrc, mediaType, href }:
       </AspectRatio>
       <div className="p-6">
         <h2 className="mb-2 line-clamp-1 font-medium tracking-tight text-foreground">{title}</h2>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="text-sm text-muted-foreground">{shortDescription || description}</p>
       </div>
-    </div>
+      </div>
+    </Link>
   );
 };

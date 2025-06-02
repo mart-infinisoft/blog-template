@@ -59,9 +59,9 @@ export default async function Home() {
       </div>
       {siteMetadata.newsletterUrl && (
         <NewsletterSubscribe
-          title="Stay updated on AI solutions and technology insights"
-          description="I write about AI-assisted software development, voice-driven methodologies, and enterprise solutions. Join technology leaders and innovators in advancing the field. Unsubscribe whenever."
-          buttonText="Get the insights"
+          title="Get early access to new articles"
+          description="Subscribe to receive new articles before they're published. I write about AI-assisted software development, voice-driven methodologies, and enterprise solutions. Unsubscribe anytime."
+          buttonText="Subscribe"
         />
       )}
       {aboutPage && (
