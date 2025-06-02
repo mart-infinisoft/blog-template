@@ -5,10 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import siteMetadata, { defaultAuthor } from "@/lib/metadata";
 import { sortByDate } from "@/lib/utils";
-import { HeroImage } from "@/components/hero-image";
-import { HeroMinimal } from "@/components/hero-minimal";
 import { HeroSimple } from "@/components/hero-simple";
-import { HeroVideo } from "@/components/hero-video";
 import { Sidebar } from "@/components/home-sidebar";
 import { Mdx } from "@/components/mdx";
 import NewsletterSubscribe from "@/components/newsletter-subscribe";
@@ -34,7 +31,7 @@ export default async function Home() {
   return (
     <div className="pb-10">
       <HeroSimple
-        title="Pioneering the future of AI-assisted software development 🚀"
+        title="Experimenting the future of AI-assisted software development 🚀"
         subtitle="I'm Martin Ouimet. Technology leader, AI solutions architect, and founder of Infinisoft World, exploring voice-driven development and human-AI collaboration."
       />
       <div className="container mt-12 max-w-6xl">

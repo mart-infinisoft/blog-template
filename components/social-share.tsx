@@ -1,115 +1,116 @@
 import Link from "next/link";
-import { SocialProfile } from "@/types";
+import { siFacebook, siLinkedin, siTwitter, siYcombinator, siReddit, siDevdotto, siMedium, siTelegram, siWhatsapp } from "simple-icons";
 import { Mail } from "lucide-react";
-import { siFacebook, siLinkedin, siTwitter, siYcombinator } from "simple-icons";
 
-import { Button, ButtonProps } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 interface SocialShareProps {
   url: string;
   text?: string;
 }
+
 export const SocialShare = ({ url, text }: SocialShareProps) => {
   const encodedUrl = encodeURIComponent(url);
+  const encodedText = encodeURIComponent(text || "");
+
+  const socialPlatforms = [
+    {
+      name: "X",
+      href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`,
+      icon: siTwitter.path,
+      color: "hover:text-blue-400"
+    },
+    {
+      name: "LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      icon: siLinkedin.path,
+      color: "hover:text-blue-600"
+    },
+    {
+      name: "Reddit",
+      href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedText}`,
+      icon: siReddit.path,
+      color: "hover:text-orange-600"
+    },
+    {
+      name: "Hacker News",
+      href: `https://news.ycombinator.com/submitlink?u=${encodedUrl}&t=${encodedText}`,
+      icon: siYcombinator.path,
+      color: "hover:text-orange-500"
+    },
+    {
+      name: "Dev.to",
+      href: `https://dev.to/new?prefill=---%0Atitle%3A%20${encodedText}%0Apublished%3A%20false%0Adescription%3A%20%0Atags%3A%20%0A---%0A%0A${encodedUrl}`,
+      icon: siDevdotto.path,
+      color: "hover:text-purple-500"
+    },
+    {
+      name: "Medium",
+      href: `https://medium.com/new-story?url=${encodedUrl}`,
+      icon: siMedium.path,
+      color: "hover:text-green-600"
+    },
+    {
+      name: "Telegram",
+      href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`,
+      icon: siTelegram.path,
+      color: "hover:text-blue-500"
+    },
+    {
+      name: "WhatsApp",
+      href: `https://wa.me/?text=${encodedText}%20${encodedUrl}`,
+      icon: siWhatsapp.path,
+      color: "hover:text-green-500"
+    },
+    {
+      name: "Email",
+      href: `mailto:?subject=${encodedText}&body=Check out this article: ${encodedUrl}`,
+      icon: null, // Will use Mail component from lucide-react
+      color: "hover:text-gray-600"
+    },
+    {
+      name: "Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+      icon: siFacebook.path,
+      color: "hover:text-blue-500"
+    }
+  ];
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Share</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>Share Post</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link
-            href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${text}`}
-            rel="noreferrer noopener"
-            target="_blank"
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-medium text-muted-foreground">Share:</span>
+      <div className="flex gap-1">
+        {socialPlatforms.map((platform) => (
+          <Button
+            key={platform.name}
+            variant="ghost"
+            size="sm"
+            asChild
+            className={`h-8 w-8 p-0 ${platform.color} transition-colors`}
           >
-            <svg
-              role="img"
-              viewBox="0 0 24 24"
-              className="mr-2 h-3 w-3"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
+            <Link
+              href={platform.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Share on ${platform.name}`}
             >
-              <path d={siTwitter.path}></path>
-            </svg>
-            Twitter
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <svg
-              role="img"
-              viewBox="0 0 24 24"
-              className="mr-2 h-3 w-3"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d={siFacebook.path}></path>
-            </svg>
-            Facebook
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link
-            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <svg
-              role="img"
-              viewBox="0 0 24 24"
-              className="mr-2 h-3 w-3"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d={siLinkedin.path}></path>
-            </svg>
-            LinkedIn
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link
-            href={`https://news.ycombinator.com/submitlink?u=${encodedUrl}`}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <svg
-              role="img"
-              viewBox="0 0 24 24"
-              className="mr-2 h-3 w-3"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d={siYcombinator.path}></path>
-            </svg>
-            Hacker News
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link
-            href={`mailto:info@example.com?&subject=&cc=&bcc=&body=${encodedUrl}%20${text}`}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <Mail className="mr-2 h-3 w-3" />
-            Email
-          </Link>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+              {platform.icon ? (
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d={platform.icon}></path>
+                </svg>
+              ) : (
+                <Mail className="h-4 w-4" />
+              )}
+            </Link>
+          </Button>
+        ))}
+      </div>
+    </div>
   );
 };

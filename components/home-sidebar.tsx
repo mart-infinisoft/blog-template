@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Pencil } from "lucide-react";
+import { ArrowRight, MapPin, Pencil, Mail } from "lucide-react";
 
 import siteMetadata, { defaultAuthor } from "@/lib/metadata";
 import { projects } from "@/lib/projects-data";
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { SocialButton } from "@/components/social-button";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
@@ -16,27 +17,33 @@ export function Sidebar({ className, ...props }: CardProps) {
     <>
       <Card className={cn("mb-4", className)} {...props}>
         <CardHeader>
-          <CardTitle>Where am I currently?</CardTitle>
+          <CardTitle>Get in Touch</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="flex items-center rounded-md pl-2 hover:bg-background/40 hover:backdrop-blur-lg">
-            <MapPin />
-            <p className="ml-2 mr-auto text-sm font-medium leading-none">{defaultAuthor.location.city}</p>
-            <Image
-              src={defaultAuthor.location.media}
-              alt="Los Angeles"
-              width={56}
-              height={56}
-              className="h-16 w-16 rounded-md object-cover"
-            />
+          <div className="flex flex-col gap-3">
+            {defaultAuthor.socialProfiles.map((platform) => (
+              <Link
+                key={platform.name}
+                href={platform.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center rounded-md pl-2 hover:bg-background/40 hover:backdrop-blur-lg"
+              >
+                <SocialButton
+                  variant="ghost"
+                  size="icon"
+                  platform={platform}
+                  className="mr-2 h-8 w-8"
+                />
+                <p className="text-sm font-medium leading-none capitalize">{platform.name}</p>
+              </Link>
+            ))}
+            <div className="flex items-center rounded-md pl-2 hover:bg-background/40 hover:backdrop-blur-lg">
+              <Mail className="mr-2 h-8 w-8 p-2" />
+              <p className="text-sm font-medium leading-none">{defaultAuthor.email}</p>
+            </div>
           </div>
         </CardContent>
-        <Separator />
-        <CardFooter>
-          <Button variant="ghost" className="w-full" disabled>
-            Digital Nomad diaries <ArrowRight className="mr-2 h-4 w-4" />
-          </Button>
-        </CardFooter>
       </Card>
       <Card className={cn(className)} {...props}>
         <CardHeader>

@@ -82,8 +82,15 @@ export default async function ProjectPage({ params }: ProjectProps) {
               {project.demoUrl && (
                 <Button asChild>
                   <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <Globe className="mr-2 h-4 w-4" />
-                    Live Demo
+                    {project.demoUrl.includes('npmjs.com') ? (
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                    ) : project.demoUrl.includes('github.com') ? (
+                      <Github className="mr-2 h-4 w-4" />
+                    ) : (
+                      <Globe className="mr-2 h-4 w-4" />
+                    )}
+                    {project.demoUrl.includes('npmjs.com') ? 'View Packages' :
+                     project.demoUrl.includes('github.com') ? 'Documentation' : 'Live Demo'}
                   </Link>
                 </Button>
               )}
@@ -95,7 +102,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
                     ) : (
                       <ExternalLink className="mr-2 h-4 w-4" />
                     )}
-                    {project.externalUrl.includes('github') ? 'View Code' : 'Visit Site'}
+                    {project.externalUrl.includes('github') ? 'GitHub Repo' : 'Visit Site'}
                   </Link>
                 </Button>
               )}
@@ -103,24 +110,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
           </div>
         </div>
 
-        {/* Project Media */}
-        <div className="mb-8 not-prose">
-          <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg border">
-            {project.mediaType === "video" ? (
-              <video autoPlay loop muted playsInline className="h-full w-full object-cover">
-                <source src="/project-garden.webm" type="video/webm" />
-                <source src="/project-garden.mp4" type="video/mp4" />
-              </video>
-            ) : (
-              <Image 
-                src={project.mediaSrc} 
-                alt={project.title} 
-                fill
-                className="object-cover"
-              />
-            )}
-          </AspectRatio>
-        </div>
+
 
         {/* Project Description */}
         <div className="mb-8">
@@ -142,32 +132,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
           </div>
         )}
 
-        {/* Project Links */}
-        <div className="not-prose">
-          <h2 className="mb-4 text-2xl font-bold">Project Links</h2>
-          <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
-            {project.demoUrl && (
-              <Button asChild className="w-full sm:w-auto">
-                <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                  <Globe className="mr-2 h-4 w-4" />
-                  Live Demo
-                </Link>
-              </Button>
-            )}
-            {project.externalUrl && (
-              <Button variant="outline" asChild className="w-full sm:w-auto">
-                <Link href={project.externalUrl} target="_blank" rel="noopener noreferrer">
-                  {project.externalUrl.includes('github') ? (
-                    <Github className="mr-2 h-4 w-4" />
-                  ) : (
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                  )}
-                  {project.externalUrl.includes('github') ? 'View Source Code' : 'Visit Website'}
-                </Link>
-              </Button>
-            )}
-          </div>
-        </div>
+
       </article>
     </div>
   );

@@ -14,6 +14,7 @@ import { Separator } from "@/components/ui/separator";
 import { Mdx } from "@/components/mdx";
 import { PostSeriesBox } from "@/components/post-series-box";
 import { SocialShare } from "@/components/social-share";
+import { SocialComments } from "@/components/social-comments";
 import { TableOfContents } from "@/components/table-of-contents";
 
 interface PostProps {
@@ -152,6 +153,33 @@ export default async function PostPage({ params }: PostProps) {
           {post.description && (
             <p className="mb-8 mt-0 text-xl text-slate-700 dark:text-slate-200">{post.description}</p>
           )}
+
+          {/* Tags at top */}
+          {post.tags && (
+            <div className="not-prose mb-4">
+              <ul className="m-0 list-none flex flex-wrap gap-2 p-0">
+                {post.tags.map((tag: string) => (
+                  <li key={tag} className="inline-block p-0">
+                    <Link
+                      href={`/tags/${tag}`}
+                      className="inline-block px-2 py-1 text-xs bg-muted text-muted-foreground rounded-md hover:bg-muted/80 transition-colors"
+                    >
+                      #{tag}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Share buttons at top */}
+          <div className="not-prose mb-6">
+            <SocialShare
+              text={`${post.title} via ${defaultAuthor.handle}`}
+              url={`${BASE_URL}/${post._raw.flattenedPath}`}
+            />
+          </div>
+
           <hr className="my-8" />
           {post?.series && (
             <div className="not-prose">
@@ -160,18 +188,7 @@ export default async function PostPage({ params }: PostProps) {
           )}
           <Mdx code={post.body.code} />
           <hr className="my-4" />
-          <div className="flex flex-row items-center justify-between">
-            {post.tags && (
-              <ul className="m-0 list-none space-x-2 p-0 text-sm text-muted-foreground">
-                {post.tags.map((tag: string) => (
-                  <li className="inline-block p-0" key={tag}>
-                    <Link href={`/tags/${tag}`} className="inline-block transition hover:text-muted-foreground/70">
-                      {tag}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+          <div className="flex justify-end">
             <SocialShare
               text={`${post.title} via ${defaultAuthor.handle}`}
               url={`${BASE_URL}/${post._raw.flattenedPath}`}
@@ -200,6 +217,15 @@ export default async function PostPage({ params }: PostProps) {
           </Card>
         </aside>
       </div>
+
+      {/* Comments Section - Full Width Below Article */}
+      <div className="container max-w-6xl mt-8">
+        <SocialComments
+          title={post.title}
+          slug={post._raw.flattenedPath}
+        />
+      </div>
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </div>
   );

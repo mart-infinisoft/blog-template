@@ -52,7 +52,7 @@ export const SpotlightCard = ({ title, description, shortDescription, mediaSrc, 
   };
 
   return (
-    <Link href={href}>
+    <Link href={href} className="no-underline">
       <div
         ref={divRef}
         onMouseMove={handleMouseMove}
@@ -72,18 +72,24 @@ export const SpotlightCard = ({ title, description, shortDescription, mediaSrc, 
         }}
       />
 
-      <AspectRatio ratio={16 / 9}>
+      <AspectRatio ratio={16 / 9} className="overflow-hidden">
         {mediaType === "video" ? (
-          <video autoPlay loop muted playsInline className="m-0 p-0">
+          <video autoPlay loop muted playsInline className="h-full w-full object-cover">
             <source src="/project-garden.webm" type="video/webm" />
             <source src="/project-garden.mp4" type="video/mp4" />
           </video>
         ) : (
-          <Image src={mediaSrc} alt={title} width={960} height={540} className="m-0 p-0" />
+          <Image
+            src={mediaSrc}
+            alt={title}
+            width={960}
+            height={540}
+            className="h-full w-full object-cover"
+          />
         )}
       </AspectRatio>
       <div className="p-6">
-        <h2 className="mb-2 line-clamp-1 font-medium tracking-tight text-foreground">{title}</h2>
+        <h2 className="mb-2 line-clamp-1 font-medium tracking-tight text-foreground no-underline">{title}</h2>
         <p className="text-sm text-muted-foreground">{shortDescription || description}</p>
       </div>
       </div>
