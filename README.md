@@ -1,17 +1,20 @@
-# Modern Developer Blog Template (Digital Garden Starter)
+# Martin Ouimet's Blog
 
-![GardenPromo](/screenshots/garden-promo.jpg)
-[More screenshots here](/screenshots/)
+Technology leader, innovator, and AI solutions architect sharing insights on AI-assisted software development, voice-driven development methodologies, and enterprise solutions.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fthedevdavid%2Fdigital-garden%2F)
+## About This Blog
 
-An open source blogging (digital gardening) template for developers using [Next.js](https://nextjs.org/) app router, MDX, [Contentlayer](https://contentlayer.dev/), [Tailwind CSS](https://tailwindcss.com/), [@shadcn/ui](https://ui.shadcn.com/) , [Lucide Icons](https://lucide.dev/icons), and more.
+This blog is built using a modern developer blog template with [Next.js](https://nextjs.org/) app router, MDX, [Contentlayer](https://contentlayer.dev/), [Tailwind CSS](https://tailwindcss.com/), [@shadcn/ui](https://ui.shadcn.com/), and [Lucide Icons](https://lucide.dev/icons).
 
-If you love this template and/or use it, please give it a star on GitHub. This will help more people discover it, thus help improving the template.
+## Featured Content
 
-![GitHub Repo stars](https://img.shields.io/github/stars/thedevdavid/digital-garden?style=social)
+- **Voice-Driven AI-SDLC Case Study**: A comprehensive case study demonstrating production-grade software development using only voice conversation on mobile devices
+- **AI-SDLC Framework**: Experimental framework for human-AI team collaboration in software development
+- **Enterprise Solutions**: Insights on building scalable, production-grade software that transforms business operations
 
-**Note: This project is always evolving and it's far from being perfect or even done.** I'm always open to suggestions and contributions. Feel free to open an issue or a PR if you have any ideas or suggestions. You can also see the [roadmap](#features--roadmap) for planned features if you want to contribute.
+## About Martin Ouimet
+
+Martin is an innovative technology leader with 20+ years of experience transforming businesses through AI and cloud solutions. As the founder and CEO of Infinisoft World, he's built a 25-person company delivering enterprise-grade software across finance, healthcare, retail, and transportation sectors.
 
 ## Table of Contents
 

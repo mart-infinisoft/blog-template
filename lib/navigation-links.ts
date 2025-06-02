@@ -6,27 +6,22 @@ const content: ContentNavItem[] = [
   {
     title: "Blog",
     href: "/posts",
-    description: "Blogposts. Mostly about web development. Or chicken fingers",
+    description: "Articles about AI, software engineering, and technology leadership",
   },
   {
-    title: "Speaking",
-    href: "/speaking",
-    description: "My previous (and current) talks, workshops, and other speaking engagements.",
-  },
-  {
-    title: "Videos",
-    href: defaultAuthor.socialProfiles.find((platform) => platform.name === "youtube")?.link as string,
-    description: "My YouTube channel where I talk about web development.",
+    title: "AI-SDLC Framework",
+    href: "https://github.com/mouimet-infinisoft/AISDLC",
+    description: "Experimental framework for human-AI team collaboration in software development",
   },
   {
     title: "Newsletter",
     href: siteMetadata.newsletterUrl as string,
-    description: "My newsletter about software development",
+    description: "Stay updated on AI solutions and technology insights",
   },
   {
-    title: "Teaching",
-    href: "/teaching",
-    description: "I teach others. Sometimes for free, sometimes for money.",
+    title: "Resume",
+    href: "/martin-ouimet-resume.pdf",
+    description: "Download Martin's CV and professional background",
   },
 ];
 

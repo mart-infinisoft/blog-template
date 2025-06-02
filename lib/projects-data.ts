@@ -1,16 +1,23 @@
 export const projects = [
   {
-    title: "ProductEngineerJobs.co",
-    description: `Job board for product engineers. Built with Next.js, Tailwind CSS, and Airtable.`,
-    href: "https://productengineerjobs.co",
-    mediaSrc: "/project-pejobs.png",
+    title: "AI-SDLC Framework",
+    description: `Experimental framework that adapts traditional Software Development Life Cycle (SDLC) principles for human-AI team collaboration, based on ISO 12207 standards.`,
+    href: "https://github.com/mouimet-infinisoft/AISDLC",
+    mediaSrc: "/project-garden.mp4",
+    mediaType: "video",
+  },
+  {
+    title: "RQRSDA2025 Platform",
+    description: `Enterprise-grade web application for managing social service operations, built using voice-driven AI-SDLC methodology. Features multi-tenant architecture, workflow automation, and comprehensive case management.`,
+    href: "https://github.com/mouimet-infinisoft/rqrsda2025",
+    mediaSrc: "/project-notion.png",
     mediaType: "image",
   },
   {
-    title: "Developer Digital Garden",
-    description: `An open source blogging (digital gardening) template for developers using Next.js app router, MDX, Contentlayer, Tailwind CSS, @shadcn/ui, Lucide Icons, and more.`,
-    href: "https://github.com/thedevdavid/digital-garden",
-    mediaSrc: "/project-garden.mp4",
-    mediaType: "video",
+    title: "Infinisoft World",
+    description: `Technology company delivering enterprise-grade software across finance, healthcare, retail, and transportation sectors. 25-person team specializing in AI and cloud solutions.`,
+    href: "https://infinisoft.world",
+    mediaSrc: "/project-pejobs.png",
+    mediaType: "image",
   },
 ];

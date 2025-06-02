@@ -21,6 +21,12 @@ export const tagOptions = [
   "nextjs",
   "gatsby",
   "tailwindcss",
+  "ai",
+  "sdlc",
+  "voice-driven-development",
+  "mobile-development",
+  "software-engineering",
+  "case-study",
 ];
 
 export const Post = defineDocumentType(() => ({

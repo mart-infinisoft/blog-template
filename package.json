@@ -1,11 +1,11 @@
 {
-  "name": "digital-garden",
+  "name": "martin-ouimet-blog",
   "version": "0.7.2",
   "private": true,
-  "repository": "https://github.com/thedevdavid/digital-garden",
+  "repository": "https://github.com/mart-infinisoft/blog-template",
   "author": {
-    "name": "David Levai",
-    "url": "https://twitter.com/thedevdavid"
+    "name": "Martin Ouimet",
+    "url": "https://x.com/InfinisoftI"
   },
   "scripts": {
     "dev": "next dev",

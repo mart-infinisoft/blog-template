@@ -8,22 +8,22 @@ export const BASE_URL =
   `http://localhost:${process.env.PORT || 3000}`;
 
 export const defaultAuthor: AuthorType = {
-  name: "Amy Shields",
-  handle: "@amyshieldsfake",
+  name: "Martin Ouimet",
+  handle: "@InfinisoftI",
   socialProfiles,
-  email: "definitelyfake@nevermind.com",
-  website: "https://nextjs.org",
-  jobTitle: "Frontend Engineer & UI Designer",
-  company: "Unicorns & Co.",
+  email: "mart@infinisoft.world",
+  website: "https://blog.infinisoft.world",
+  jobTitle: "Technology Leader & AI Solutions Architect",
+  company: "Infinisoft World Inc.",
   availableForWork: true,
   location: {
-    city: "Los Angeles",
-    media: "/losangeles.jpg",
+    city: "Montreal",
+    media: "/martin-portrait.jpg",
   },
 };
 
 const defaultTitle = `${defaultAuthor.name}'s Blog`;
-const defaultDescription = `I'm ${defaultAuthor.name}. Building hackin’ cool digital products around the world 🌴.`;
+const defaultDescription = `I'm ${defaultAuthor.name}, an innovative technology leader with 20+ years of experience transforming businesses through AI and cloud solutions. Founder and CEO of Infinisoft World.`;
 
 const siteMetadata: SiteMetaData = {
   title: {
@@ -31,9 +31,9 @@ const siteMetadata: SiteMetaData = {
     default: defaultTitle,
   },
   description: defaultDescription,
-  siteRepo: "https://github.com/thedevdavid/digital-garden",
+  siteRepo: "https://github.com/mart-infinisoft/blog-template",
   newsletterProvider: "mailerlite",
-  newsletterUrl: "https://developreneur.davidlevai.com",
+  newsletterUrl: "https://blog.infinisoft.world",
   analyticsProvider: "umami",
   defaultTheme: "system",
   activeAnnouncement: true,
